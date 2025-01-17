@@ -1,0 +1,26 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #dadada;
+    cursor: pointer;
+}
+
+.btn2 {
+    padding: 10px 20px;
+    background-color: red;
+    cursor: pointer;
+}

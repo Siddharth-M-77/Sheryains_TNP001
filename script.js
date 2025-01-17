@@ -107,16 +107,149 @@
 // });
 
 //
-let num = prompt("Please enter a number");
-if (num === null || num.trim() === "") {
-  console.log("Please enter a number");
-} else {
-  let numNum = Number(num);
-  if (isNaN(numNum) === true) {
-    console.log("Please enter a number");
-  } else if (numNum >= 0) {
-    console.log("Number is Positive");
-  } else {
-    console.log("Number is negative");
-  }
-}
+// let num = prompt("Please enter a number");
+// if (num === null || num.trim() === "") {
+//   console.log("Please enter a number");
+// } else {
+//   let numNum = Number(num);
+//   if (isNaN(numNum) === true) {
+//     console.log("Please enter a number");
+//   } else if (numNum >= 0) {
+//     console.log("Number is Positive");
+//   } else {
+//     console.log("Number is negative");
+//   }
+// }
+
+//Use if...else if to classify a grade as “A”, “B”, or “Fail”.
+
+// let grade = "A B";
+// let userInput = "C";
+// if (grade.includes(userInput)) {
+//   console.log("Grade ");
+// } else {
+//   console.log("Fail");
+// }
+
+//Create a switch case for selecting a fruit price.
+
+// let fruit = "banana";
+
+// switch (fruit) {
+//   case "apple":
+//     console.log("price is 20");
+//     break;
+
+//   case "banana":
+//     console.log("Price is 30");
+//     break;
+
+//   default:
+//     console.log("price is free");
+// }
+
+//Create an object to store information about a car (e.g., make, model, year).
+
+// const obj = {
+//   make: "ambaani",
+//   model: "2021",
+//   year:"2021"
+// };
+
+// console.log(obj.make)
+// obj.name="Sidd"
+
+// console.log(obj)
+
+// let str = "hello ";
+// let str2 = "hello2";
+
+// let str3 = str + str2;
+// console.log(str3);
+
+//String Manipulation
+
+// let str = "Siddharth"
+
+// console.log(str.slice(0,5))
+
+// /Replace a word in a string using .replace().
+
+// let str = "Siddharth";
+// console.log(str.replace("Siddharth", "Sidd"));
+
+//9 Event Handling (Basic DOM Interaction)
+
+// Create a button and log a message when it is clicked.
+
+// const btn = document.querySelector(".btn");
+// btn.addEventListener("click", () => {
+//   btn.style.backgroundColor = "red";
+// });
+
+//Change the background color of a div on a mouseover event.
+
+// const bdy = document.querySelector(".bdy");
+// console.log(bdy);
+// bdy.addEventListener("mouseenter", () => {
+//   bdy.style.backgroundColor = "red";
+// });
+
+// const btn = document.querySelector(".btn");
+
+// btn.addEventListener("click", () => {
+//   btn.classList.toggle("btn2");
+// });
+
+//Range-Based Tasks
+
+// Print all even numbers between 1 and 20.
+
+// for (let num = 1; num < 21; num++) {
+//   if (num % 2 === 0) {
+//     console.log(num);
+//   }
+// }
+
+// let num1 = prompt("Number 1");
+// let num2 = prompt("Number 2");
+// let num3 = prompt("Number 3");
+// num1 = Number(num1);
+// num2 = Number(num2);
+// num3 = Number(num3);
+// if (isNaN(num1) || isNaN(num2) || isNaN(num3)) {
+//   console.log("All should be number");
+// } else {
+//   console.log(((num1 + num2 + num3) / 3).toFixed(2));
+// }
+
+// function sum() {
+//   let sum = 0;
+
+//   for (let i = 0; i < 101; i++) {
+//     sum += i;
+//   }
+//   return sum;
+// }
+// console.log(sum());
+
+// let str = "swachya bharat ka iraada kr liya hamne";
+
+// console.log(str.length);
+// let char = str.charAt(0) + str.charAt(37);
+// console.log(char);
+
+// let a = 5;
+// let b = 10;
+// c = a + b;
+// console.log(c);
+
+// let age = 25
+
+// age = 30
+// console.log(typeof age)
+
+// let str = "Siddharth";
+// console.log(str.slice());
+
+

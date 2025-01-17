@@ -1,0 +1,149 @@
+// 1.⁠ ⁠Basic Console Usage
+// 	1.	Write a program that calculates the sum of 5 + 10, assigns it to a variable, and logs the result to the console.
+
+answer=>
+let a = 5
+let b = 10
+clg
+console.log(a+b)
+
+
+
+
+// 2.⁠ ⁠Variables and Data Types
+// 	2.	Declare a variable age with the value 25. Then, reassign it to 30 and log its type using typeof.
+
+answer =>// let age = 25
+
+// age = 30
+// console.log(typeof age)
+
+
+
+
+// 3.⁠ ⁠Loops
+// 	3.	Write a for loop that prints all the odd numbers between 1 and 20.
+    answer=>// for(let i=1;i<21;i++){
+//     if(i%2===1){
+//         console.log(i)
+//     }
+// }
+
+// 	4.	Create a while loop that starts at 10 and decreases by 2 until it reaches 0. Log each step.
+
+answer=>
+let i = 10;
+while (i >= 0) {
+  console.log(i);
+  i -= 2;
+}
+
+
+    
+
+
+// 4.⁠ ⁠Arrays
+// 	5.	Create an array of your favorite fruits (at least 5).
+
+answer=>
+let arr = ["apple", "banana", "mango", "graps", "papaya"];
+
+
+// 	•	Add a new fruit to the end of the array.
+
+ answer=>
+
+ arr.push("apple")
+
+
+// 	•	Remove the first fruit from the array.
+
+answer=>
+arr.shift()
+
+
+// 	•	Log the updated array.
+
+console.log(arr)
+
+// 	6.	Write a program that iterates over an array of numbers and prints only the numbers greater than 10.
+
+answer=>
+let arr = [12, 23, 45, 11, 1, 2, 3, 4, 5, 50, 9];
+
+for (let i = 0; i < arr.length; i++) {
+  if (arr[i] > 10) {
+    console.log(arr[i]);
+  }
+}
+
+
+// 5.⁠ ⁠Functions
+// 	7.	Write a function multiplyNumbers that takes two numbers as arguments 
+and returns their product. Test the function with values 5 and 6.
+
+answer=>
+let a = 5;
+let b = 6;
+
+function addTwoNumberForMultifly(a, b) {
+  return a * b;
+}
+console.log(addTwoNumberForMultifly(a,b))
+
+// 6.⁠ ⁠Conditionals
+// 	8.	Write an if...else statement to check if a number is divisible by 3. If it is, log “Divisible by 3,” otherwise log “Not divisible by 3.”
+
+
+answer=>
+
+let num = 9;
+if (num % 3 === 0) {
+  console.log("Divisible by 3");
+} else {
+  console.log("Not Divisible by 3");
+}
+
+
+// 7.⁠ ⁠Object Basics
+// 	9.	Create an object book with properties: title, author, and year. Add a new property genre with the value fiction and log the updated object.
+
+answer=>
+const obj = {
+    title:"Rich Dad and Poor Dad",
+    author:"John Stive",
+    year:"1999"
+    
+}
+obj.genre="Finanance"
+console.log(obj)
+
+
+// 8.⁠ ⁠String Manipulation
+// 	10.	Write a program that takes a string JavaScript is fun! and:
+// 	•	Converts it to all uppercase.
+
+answer=>
+
+let str = "JavaScript is fun!"
+
+let str2 = str.toUpperCase()
+console.log(str2)
+
+
+// 	•	Extracts the first 10 characters.
+
+answer=>
+
+
+console.log(str2.slice(0,11))
+
+// 	•	Replaces the word fun with awesome.
+
+answer=>
+
+console.log(str.replace("fun", "awesome"));
+
+// Let me know if you’d like solutions or hints for these questions!
+
+
