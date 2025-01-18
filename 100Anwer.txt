@@ -954,22 +954,167 @@ console.log(sumOfOddNumber());
 
 	87.	Create an object representing a person and log their full name.
 
-answer=> 
+answer=>const person = {
+  firstName: "Siddharth",
+  lastName: "Singh",
+  getFullName: function(){
+    return `${this.firstName} ${this.lastName}`;
+  },
+};
+
+console.log(person.getFullName())
 
 	88.	Write a program to convert the string "10" to a number and add 5 to it.
+answer=> let str = "20";
+const convertIntoNumber = (str) => {
+  let num = Number(str) + 5;
+  console.log(num)
+};
+convertIntoNumber(str)
+
+
 	89.	Write a program to reverse an array without using .reverse().
+
+answer=> const arr = [1, 2, 3, 4, 5];
+
+const reverse = (arr) => {
+  let reverse = [];
+  for (let i = arr.length - 1; i >= 0; i--) {
+    reverse.push(arr[i]);
+  }
+  return reverse;
+};
+console.log(reverse(arr));
+
+
 	90.	Create a program to check if an array is empty.
+
+answer=> const arr = [1];
+const isEmpaty = (arr) => {
+  if (arr.length === 0) {
+    return "This array is Empaty";
+  }
+  else{
+    return "This is not a empty arr"
+  }
+};
+console.log(isEmpaty(arr))
+
+
 	91.	Write a program to fetch the current date and format it as DD/MM/YYYY.
+answer=> let date = new Date();
+
+console.log(`${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`);
+
 	92.	Write a program to find the smallest number in an array.
+
+answer=>    
+    const arr = [10,2,33,0,4,-1, 2, 3, 4, 5];
+
+const smallNumber = (arr) => {
+  let small = arr[0];
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i]  < small) {
+      small = arr[i];
+    }
+  }
+  return small;
+};
+console.log(smallNumber(arr))
+
 	93.	Create a function to return the Fibonacci sequence up to n terms.
+answer=> 
+const fibonacci = (num) => {
+  let a = 0;
+  let  b = 1;
+  console.log(a);
+  if (num > 1)  console.log(b);
+
+  for (let i = 2; i < num; i++) {
+  let  next = a + b;
+    console.log(next)
+    a = b;
+    b = next;
+  }
+};
+
+fibonacci(4);
+
 	94.	Use a try...catch block to handle division by zero.
+answer=> const divideNumbers = (a, b) => {
+  try {
+    if (b === 0) {
+      throw new Error("Division by zero is not allowed.");
+    }
+    return a / b;
+  } catch(error) {
+    console.error(error.message);
+  }
+};
+
+console.log(divideNumbers(6, 2));
+
+    
 	95.	Write a program to find the index of the first vowel in a string.
+
+answer=>  let str = "siddharth";
+
+const findFirstVowelIndex = (str) => {
+  let lowerStr = str.toLowerCase();
+  let vowel = "aeiou";
+
+  for (let i = 0; i < lowerStr.length - 1; i++) {
+    if (vowel.includes(lowerStr[i])) {
+      return i;
+    }
+  }
+  return -1;
+};
+console.log(findFirstVowelIndex(str));
+
+
 	96.	Create a function that accepts an array and returns only unique values.
-	97.	Write a program to merge two sorted arrays into one sorted array.
+
+answer=>  let arr = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6];
+
+const uniqueArray = (arr) => {
+  return [...new Set(arr)];
+};
+console.log(uniqueArray(arr));
+
+
+	97.	Write a program to merge two sorted arrays into one sorted array.'
+
+answer=>  
+let arr1 = [1, 9, 2, 4, 5];
+let arr2 = [6, 7, 8];
+let mergeArray = [...arr1, ...arr2].sort((a, b) => a - b);
+console.log(mergeArray);
+
+
 	98.	Create a function to count the number of words in a string.
+
+answer=> 
+let word = "siddharth";
+let count = 0;
+for (let i = 0; i < word.length; i++) {
+  count++;
+}
+console.log(count);
+
+
 	99.	Write a program to toggle a button’s background color when clicked.
+answer=>done
+
 	100.	Write a function to check if all elements in an array are greater than a specific value.
 
-These questions cover a wide range of fundamental JavaScript concepts. Let me know if you’d like further clarification or solutions for any of these!
+  answer=> const arr = [1, 2, 3, 4, 5];
+
+const areAllElementsGreaterThan = (arr, val) => {
+  return arr.every((elem) => elem > val);
+};
+console.log(areAllElementsGreaterThan(arr,1))
+
+
 
 

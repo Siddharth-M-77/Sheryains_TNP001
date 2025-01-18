@@ -252,4 +252,10 @@
 // let str = "Siddharth";
 // console.log(str.slice());
 
+// 88.	Write a program to convert the string "10" to a number and add 5 to it.
+// answer=>
+
+// Write a program to find the index of the first vowel in a string.
+
+// Write a program to merge two sorted arrays into one sorted array
 
