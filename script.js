@@ -336,20 +336,117 @@
 
 // Write a function that returns another function to calculate the power of a number.
 
-function debonce(func, delay) {
-  let timer;
-  console.log("Searching...");
-  return (...args) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      func(...args);
-    }, delay);
-  };
-}
+// const memoize = (func) => {
+//   const cache = {};
 
-const search = () => {
-  console.log("Searching...");
-};
+//   return (...args) => {
+//     const key = JSON.stringify(args);
+//     if (cache[key]) {
+//       console.log("Fetching from cache...");
+//       return cache[key];
+//     } else {
+//       const result = func(...args);
+//       cache[key] = result;
+//       return result;
+//     }
+//   };
+// };
+
+// const factorial = (n) => {
+//   if (n <= 1) {
+//     // Base case
+//     return n;
+//   }
+//   return n * factorial(n - 1);
+// };
+
+// const memoizedFactorial = memoize(factorial);
+// console.log(memoizedFactorial(5));
+// console.log(memoizedFactorial(5));
+
+// 32.	Create a recursive function to calculate the Fibonacci sequence up to n terms.
+
+// 22.	Create a program to find the second largest number in an array.
+// Throttling function
+// const throttle = (func, delay) => {
+//   let isThrottled = false; // To track whether function is being throttled
+
+//   return (...args) => {
+//     if (isThrottled) return; // If function is throttled, do nothing
+
+//     func(...args); // Otherwise, call the function
+
+//     isThrottled = true; // Set throttled to true
+
+//     setTimeout(() => {
+//       isThrottled = false; // Reset throttled after delay
+//     }, delay); // Wait for the delay time before allowing next call
+//   };
+// };
+
+// // API call function
+// const fetchPosts = () => {
+//   console.log("API Call Triggered");
+//   fetch("https://jsonplaceholder.typicode.com/posts")
+//     .then((response) => response.json())
+//     .then((data) => {
+//       console.log("Data fetched: ", data.length); // Display number of posts
+//     })
+//     .catch((error) => console.error("Error fetching data: ", error));
+// };
+
+// // Wrap the fetchPosts function with throttling, allow 1 call every 2 seconds
+// const throttledFetchPosts = throttle(fetchPosts, 2000);
+
+// // Test the throttled function with setInterval
+// setInterval(() => {
+//   throttledFetchPosts(); // Triggering API call every 500ms
+// }, 500);
+
+// const applyToEachElement = (arr, callback) => {
+//   const result = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     result.push(callback(arr[i], i, arr));
+//   }
+//   return result;
+// };
+
+// // arr
+// const number = [1, 2, 3, 4, 5, 6];
+// // Callback function to square each number
+// const divideByMAx = (num, index, arr) => {
+//   const max = Math.max(...arr);
+//   return (num / max).toFixed(2);
+// };
+
+// const squareNumaber = applyToEachElement(number, divideByMAx);
+// console.log(squareNumaber);
+
+// const HOF = (callback) => {
+//   return function (arr) {
+//     let result = [];
+//     for (let i = 0; i < arr.length; i++) {
+//       result.push(callback(arr[i], i));
+//     }
+//     return result;
+//   };
+// };
+
+// const arr = [1, 2, 3, 4, 5];
+
+// const increment = (num, i) => num + i;
+
+// const returnFunction = HOF(increment);
+// console.log(returnFunction(arr));
+
+// Create a function that accepts an array of functions and executes them sequentially.
+
+// 41.	Write a program to reverse the words in a sentence but not the sentence itself.
+
+// 42.	Use a regex to validate if a string is a valid email address.
+
+// .	Create a program to capitalize the first letter of each word in a string.
+
+// .	Create a function to count the frequency of each word in a string.
 
 
-debonce(search, 4000);

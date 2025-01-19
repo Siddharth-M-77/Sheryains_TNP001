@@ -380,7 +380,8 @@ counter.increment()
 answer=>     
 
 	
-answer=>     const memoize = (func) => {
+answer=>  
+   const memoize = (func) => {
   const cache = {};
 
   return (...args) => {
@@ -410,12 +411,266 @@ console.log(memoizedFactorial(5));
 
    35.	Write a function to debounce a button click event.
  answer=>  
+ const debounce = (func, delay) => {
+  let timer;
+  return () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func();
+    }, delay);
+  };
+};
+const handleClick = () => {
+  console.log("Btn is clicked");
+};
+const debouncedHandleClick = debounce(handleClick, 1000);
+
+const button = document.getElementById("myButton");
+button.addEventListener("click", debouncedHandleClick);
+
    
 	36.	Implement a function that throttles an API call.
-annswe=>     
+annswe=>  const throttle = (func, delay) => {
+  let isThrottled = false; // To track whether function is being throttled
+
+  return (...args) => {
+    if (isThrottled) return; // If function is throttled, do nothing
+
+    func(...args); // Otherwise, call the function
+
+    isThrottled = true; // Set throttled to true
+
+    setTimeout(() => {
+      isThrottled = false; // Reset throttled after delay
+    }, delay); // Wait for the delay time before allowing next call
+  };
+};
+
+// API call function
+const fetchPosts = () => {
+  console.log("API Call Triggered");
+  fetch("https://jsonplaceholder.typicode.com/posts")
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Data fetched: ", data.length); // Display number of posts
+    })
+    .catch((error) => console.error("Error fetching data: ", error));
+};
+
+// Wrap the fetchPosts function with throttling, allow 1 call every 2 seconds
+const throttledFetchPosts = throttle(fetchPosts, 2000);
+
+// Test the throttled function with setInterval
+setInterval(() => {
+  throttledFetchPosts(); // Triggering API call every 500ms
+}, 500);
+
 	37.	Create a higher-order function that applies a callback to each element of an array.
+  answer=>  
+  //1st as a function in argument 
+const applyToEachElement = (arr, callback) => {
+  const result = [];
+  for (let i = 0; i < arr.length; i++) {
+    result.push(callback(arr[i], i, arr));
+  }
+  return result;
+};
+
+// arr
+const number = [1, 2, 3, 4, 5, 6];
+// Callback function to square each number
+const square = (num) => num * num;
+
+const squareNumber = applyToEachElement(number, square);
+console.log(squareNumber);
+
+//2nd is accept function as an argument and return also another funtion 
+const HOF = (callback) => {
+  return function (arr) {
+    let result = [];
+    for (let i = 0; i < arr.length; i++) {
+      result.push(callback(arr[i], i));
+    }
+    return result;
+  };
+};
+
+const arr = [1, 2, 3, 4, 5];
+
+const increment = (num, i) => num + i;
+
+const returnFunction = HOF(increment);
+console.log(returnFunction(arr));
+
+
 	38.	Write a function that calculates the GCD (Greatest Common Divisor) of two numbers.
+answer=>
+ const num1 = 56;
+const num2 = 98;
+
+function GCD(a, b) {
+  if (b === 0) return a;
+  return GCD(b,a%b)
+}
+console.log(GCD(num1, num2));
+       
+
 	39.	Create a function that accepts an array of functions and executes them sequentially.
+answer=>
+        function executeSequentially(functions) {
+  if (functions.length === 0) return;
+
+  for (let i = 0; i < functions.length; i++) {
+    functions[i]();
+  }
+}
+
+const func1 = () => console.log("Function 1 Excuted");
+const func2 = () => console.log("Function 2 Excuted");
+const func3 = () => console.log("Function 3 Excuted");
+
+const functionArray = [func1, func2, func3];
+
+executeSequentially(functionArray)
+
 	40.	Write a function to curry a simple mathematical operation.
 
+answer=> const add = (a) => {
+  return (b) => {
+  return  a + b;
+  };
+};
 
+const add5 = add(5);
+console.log(add5(6))
+
+--------------------------------------------------------------------------------
+
+5. Strings and Regular Expressions (10 Questions)
+	41.	Write a program to reverse the words in a sentence but not the sentence itself.
+answer=>const sentence = "hello sidd bhai kaie ho";
+
+const reverseWord = (sentence) => {
+  let words = sentence.split(" ");
+  let reversewords = words.map((word) => word.split("").reverse().join(""));
+  return reversewords.join(" ");
+};
+
+console.log(reverseWord(sentence));
+
+
+	42.	Use a regex to validate if a string is a valid email address.
+answer=>   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+const validateEmail = (email) => {
+  return emailRegex.test(email);
+};
+
+const email = "example@example.com";
+
+if (validateEmail(email)) {
+  console.log("Valid email address!");
+} else {
+  console.log("Invalid email address!");
+}
+
+	43.	Create a function to check if a string contains only digits.
+answer=>
+  const str = "893";
+const checkStringContainOnlyDigit = (str) => {
+  const regex = /^\d+$/;
+  return regex.test(str);
+};
+console.log(checkStringContainOnlyDigit(str));
+
+	44.	Write a function to extract all numbers from a string and return them as an array.
+answer=>function extractNumbers(str) {
+  // Regex to find all numbers in the string
+  const regex = /\d+/g;
+
+  // Match all numbers and return as an array
+  return str.match(regex) ? str.match(regex).map(Number) : [];
+}
+
+// Example usage:
+console.log(extractNumbers("There are 12 apples and 5 bananas.")); 
+console.log(extractNumbers("I have 100 dollars and 50 cents."));  
+
+	45.	Use .match() to find all occurrences of a word in a string.
+answer=. const findWordOccurrences = (word, str) => {
+  const regex = new RegExp(`\\b${word}\\b`, `g`);
+  return str.match(regex) || [];
+};
+const sentence =
+  "apple is a fruit, I love apple pie, and apple juice is healthy.";
+const word = "apple";
+
+console.log(findWordOccurrences(word,sentence))
+
+
+	46.	Create a program to capitalize the first letter of each word in a string.
+
+answer=> let str = "hello sidd";
+
+const capitalize = (str) => {
+  let words = str.split(" ");
+  return words.map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+};
+
+console.log(capitalize(str));
+
+	47.	Write a function that removes duplicate characters from a string.
+annswer=>   let str = "Sidd";
+const removeDup = (str) => {
+  let unique = "";
+  for (let char of str) {
+    if (!unique.includes(char)) {
+      unique+=char;
+    }
+  }
+  return unique
+};
+
+console.log(removeDup(str))
+
+	48.	Use a regex to replace multiple spaces with a single space.
+
+answer=>  let str = "This   is   a   sentence  with   multiple spaces.";
+
+const replaceMultipleSpaces = (str) => {
+  return str.replace(/\s+/g, ' ');  // Replace multiple spaces with a single space
+};
+
+console.log(replaceMultipleSpaces(str)); // Output: "This is a sentence with multiple spaces."
+
+
+   
+	49.	Write a function to check if a string is an anagram of another string.
+
+answer=>const isAnagram = (str1, str2) => {
+  if (str1.length !== str2.length) return;
+
+  const sortedStr1 = str1.split("").sort().join("");
+  const sortedStr2 = str1.split("").sort().join("");
+  return sortedStr1 === sortedStr2;
+};
+
+console.log(isAnagram("listen", "silent"));
+
+
+	50.	Create a function to count the frequency of each word in a string.
+
+answer=> let str = "siddharth siddharth siddharth abc          abc hello";
+const countfrequency = (str) => {
+  let words = str.toLowerCase().split(/\s+/);
+  let wordCount = {};
+  words.forEach((word) => {
+    if (wordCount[word]) {
+      wordCount[word]++;
+    } else {
+      wordCount[word] = 1;
+    }
+  });
+  return wordCount;
+};
+console.log(countfrequency(str));
