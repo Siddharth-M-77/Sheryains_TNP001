@@ -449,4 +449,486 @@
 
 // .	Create a function to count the frequency of each word in a string.
 
+// 51.	Write a script to dynamically create 10 buttons on a webpage.
 
+// 2. Advanced Loops (10 Questions)
+// 	11.	Write a nested loop to generate a multiplication table (1 to 10).
+// 	12.	Use a for...in loop to iterate through the properties of an object.
+// 	13.	Write a program to calculate the sum of all even numbers between 1 and 100 using a for loop.
+// 	14.	Use a for...of loop to iterate over a string and count the vowels.
+// 	15.	Create a loop that breaks out when a specific condition is met (e.g., number divisible by 7).
+// 	16.	Write a loop that skips numbers divisible by 3 but logs all others up to 20.
+// 	17.	Use a do...while loop to prompt the user until they enter a positive number.
+// 	18.	Write a nested loop to generate a pyramid pattern:
+
+//    *
+//   ***
+//  *****
+// *******
+
+// 	19.	Use a loop to reverse a string "JavaScript".
+// 	20.	Write a program to calculate the product of all numbers in an array using a loop.
+
+//21
+// const arr1 = [1, 2, 2, 3, 3, 4, 5, 6];
+// const arr2 = [4, 5, 6, 7, 8];
+
+// const mergeArr = [...arr1, ...arr2];
+// const uniqueArr = [...new Set(mergeArr)];
+// console.log(uniqueArr);
+
+//22.	Create a program to find the second largest number in an array.
+
+// let arr = [1, 2, 3, 4, 5, 6, 7];
+
+// const soretdArray = arr.sort((a, b) => b - a);
+// const second = arr[1];
+// console.log(second);
+
+// let largest = -Infinity;
+// let secondLargest = -Infinity;
+// for (let i = 0; i < arr.length; i++) {
+//   if (arr[i] > largest) {
+//     secondLargest = largest;
+//     largest = arr[i];
+//   } else if (arr[i] > secondLargest && arr[i] !== largest) {
+//     secondLargest = arr[i];
+//   }
+// }
+
+// console.log(secondLargest)
+
+// 23.	Write a function that removes all falsy values from an array.
+
+// const arr = [null, undefined, 0, false, NaN, "", 3, 4, 6, "jhv"];
+
+// const removeFalsy = (arr) => {
+//   return arr.filter(Boolean);
+// };
+
+// const removeFalsy = (arr) => {
+//   let result = [];
+//   for (let word of arr) {
+//     if (word) {
+//       result.push(word);
+//     }
+//   }
+//   return result;
+// };
+// const newVal = removeFalsy(arr);
+// console.log(newVal);
+
+//we can do this using for ,forEach,map,forof
+// const arr = [1, 2, 3, "Siddharth", 0, false, undefined];
+// const removeFalse = (arr) => {
+//   let result = [];
+//   arr.forEach((elem) => {
+//     if (elem) {
+//       result.push(elem);
+//     }
+//   });
+//   return result;
+// };
+
+// const value = removeFalse(arr);
+// console.log(value);
+
+// let arr = [1, 2, 3, 4, 5, 6, 7, , 89];
+
+// const sum = arr.reduce((acc, curVal) => acc + curVal, 0);
+// console.log(sum)
+
+// 25.	Write a program that rotates an array to the left by n positions.
+
+//from left ✅✅
+// let arr = [1, 2, 3, 4, 5, 6, 7];
+
+// const rotateNLeft = (arr, k) => {
+//   k = k % arr.length;
+//   const cutedArr = arr.slice(0, k);
+//   const remaingArr = arr.slice(k);
+//   return [...remaingArr, ...cutedArr];
+// };
+// const rotatearr = rotateNLeft(arr, 2);
+// console.log(rotatearr);
+
+//from rigth ✅✅
+
+// const arr = [1, 2, 3, 4, 5, 6, 7, 8];
+
+// const rotateRight = (arr, k) => {
+//   k = k % arr.length;
+//   const cutedArr = arr.slice(-k);
+//   const remainign = arr.slice(0, arr.length - k);
+
+//   return [...cutedArr, ...remainign];
+// };
+// const answer = rotateRight(arr, 2);
+
+// console.log(answer)
+
+// 26.	Use .find() to locate the first even number in an array.✅
+
+// let arr = [1, 3, 5, 7, 8, 2];
+// let evenNum = arr.find((elem) => elem % 2 === 0);
+// console.log(evenNum);
+
+// 27.	Create a function that flattens a nested array (e.g., [1, [2, [3]]] → [1, 2, 3]). ✅✅
+
+let nestedArr = [1, [2, [3, [5, [7, [9]]]]]];
+
+//using flat(infinity)✅
+// const flatArray = (arr) => {
+//   return arr.flat(Infinity);
+// };
+// console.log(flatArray(nestedArr));
+
+//using recersive✅
+// const flatArr = (arr) => {
+//   let flatarr = [];
+
+//   arr.forEach((elem) => {
+//     if (Array.isArray(elem)) {
+//       flatarr = flatarr.concat(flatArr(elem));
+//     } else {
+//       flatarr.push(elem);
+//     }
+//   });
+
+//   return flatarr; // Return the flattened array
+// };
+
+// console.log(flatArr(nestedArr)); // Output: [1, 2, 3, 5, 7, 9]
+
+// let nestedArr = [1, [2, [3, [5, [7, [9]]]]]];
+
+// const flatArr = (arr) => {
+//   return JSON.parse('[' + JSON.stringify(arr).replace(/\[|\]/g,"")+ ']');
+// };
+
+// console.log(flatArr(nestedArr));
+
+//3rd is using regex✅
+
+// const flatArray = (arr) => {
+//   return JSON.parse("[" + JSON.stringify(arr).replace(/\[|\]/g, "") + ']');
+// };
+// console.log(flatArray(nestedArr));
+
+// 28.	Write a program that counts how many times each element appears in an array.✅
+
+// let arr = [1, 1, 2, 2, 3, 3, "sidd", [],[],[],[]];
+
+// const countElemAppearence = (arr) => {
+//   let count = {};
+
+//   arr.forEach((elem) => {
+//     let key = JSON.stringify(elem);
+
+//     if (count[key]) {
+//       count[key]++;
+//     } else {
+//       count[key] = 1;
+//     }
+//   });
+
+//   return count;
+// };
+
+// console.log(countElemAppearence(arr));
+
+// 30.	Sort an array of objects by a specific property
+// const arrayOfObj = [
+//   {
+//     name: "Siddharth",
+//     age: 22,
+//   },
+//   {
+//     name: "Siddharth",
+//     age: 20,
+//   },
+//   {
+//     name: "Siddharth",
+//     age: 21,
+//   },
+// ];
+
+// const sortedObj = arrayOfObj.sort((a, b) => a.age - b.age);
+// console.log(sortedObj)
+
+// 31.	Write a function that returns another function to calculate the power of a number.✅
+
+// const firstFunc = (a) => {
+//   return (secondfunc = (b) => {
+//     return a ** b;
+//   });
+// };
+// const HOF = firstFunc(2)
+// console.log(HOF(3))
+
+// 32.	Create a recursive function to calculate the Fibonacci sequence up to n terms.
+
+// const Fibonacci = (n) => {
+//   if (n <= 1) return n;
+//   return Fibonacci(n - 1) + Fibonacci(n - 2);
+// };
+
+// const fabSequence = (n) => {
+//   let sequence = [];
+//   for (let i = 0; i < n; i++) {
+//     sequence.push(Fibonacci(i));
+//   }
+// return sequence;
+// };
+// console.log(fabSequence(10));
+
+// 33.	Write a function that uses closures to create a counter.
+
+// const clouser = () => {
+//   let count = 0;
+//   return {
+//     increment: () => {
+//       return count++;
+//     },
+//     decrement: () => {
+//       return count--;
+//     },
+//     getCount: () => {
+//       console.log(count);
+//     },
+//   };
+// };
+
+// const count = clouser();
+// count.decrement();
+// count.getCount();
+
+// 34.	Create a function that memoizes the result of a computation.
+
+// const factorial = (num) => {
+//   let fact = 1;
+//   for (let i = 1; i <= num; i++) {
+//     fact *= i;
+//   }
+//   return fact;
+// };
+
+// const memoize = (func) => {
+//   let cache = {};
+//   return (...args) => {
+//     let key = JSON.stringify(args);
+//     if (cache[key]) {
+//       console.log("Fetching from cache");
+//       return cache[key];
+//     } else {
+//       console.log("Computing new result");
+//       let result = func(...args);
+//       cache[key] = result;
+//       return result;
+//     }
+//   };
+// };
+// const memoizalbe = memoize(factorial);
+// console.log(memoizalbe(5));
+// console.log(memoizalbe(5));
+
+// const debounce = (func, delay) => {
+//   let timer;
+//   return () => {
+//     clearTimeout(timer);
+//     timer = setTimeout(() => {
+//       func();
+//     }, delay);
+//   };
+// };
+
+// const handleCLick = () => {
+//   console.log("Button is clicked");
+// };
+
+// const handleDEbounce = debounce(handleCLick, 3000);
+// handleDEbounce();
+
+// const arr = [1, 1, 2, 3, 4, 4, "1", "1", 3, 5, 5, [], {}];
+
+// const count = (arr) => {
+//   let count = {};
+//   arr.forEach((elem) => {
+//     const key = JSON.stringify(elem);
+//     if (count[key]) {
+//       count[key]++;
+//     } else {
+//       count[key] = 1;
+//     }
+//   });
+//   return count;
+// };
+// console.log(count(arr));
+
+// Implement a function that throttles an API call.✅
+
+// const throttle = (func, delay) => {
+//   let isThrottled = false;
+//   return (...args) => {
+//     if (isThrottled) return;
+//     func(...args);
+//     isThrottled = true;
+//     setTimeout(() => {
+//       isThrottled = false;
+//     }, delay);
+//   };
+// };
+
+// const fetchPosts = () => {
+//   console.log("API Call Triggered");
+//   fetch("https://jsonplaceholder.typicode.com/posts")
+//     .then((response) => response.json())
+//     .then((data) => {
+//       console.log("Data fetched: ", data.length);
+//     })
+//     .catch((error) => console.error("Error fetching data: ", error));
+// };
+// const throttledFetchPosts = throttle(fetchPosts, 2000);
+// setInterval(() => {
+//   throttledFetchPosts();
+// }, 500);
+
+// 21.	Write a program to merge two arrays and remove duplicate values.
+
+// 	22.	Create a program to find the second largest number in an array.
+
+// 	23.	Write a function that removes all falsy values from an array.
+
+// const arr = [NaN, undefined, "", false, 0, null, 1, 2, 3, 4, "sidd"];
+// const removeFalsy = (arr) => {
+//   const result = [];
+//   arr.forEach((elem) => {
+//     if (elem) {
+//       result.push(elem);
+//     }
+//   });
+//   return result;
+// };
+// console.log(removeFalsy(arr));
+
+// 	24.	Use .reduce() to find the total sum of numbers in an array.
+
+// // 	25.	Write a program that rotates an array to the left by n positions.
+// const arr = [1, 2, 3, 4, 5, 6];
+
+// const rotate = (arr, k) => {
+//   const cutedArr = arr.slice(0, k);
+//   const remaining = arr.slice(k);
+//   return [...remaining, ...cutedArr];
+// };
+// console.log(rotate(arr, 2));
+
+// 	26.	Use .find() to locate the first even number in an array.
+// 	27.	Create a function that flattens a nested array (e.g., [1, [2, [3]]] → [1, 2, 3]).
+// const nestedArray = [1, [2, [3, [4, [5]]]]];
+// const flatArr = (arr) => {
+//   let flatArray = [];
+//   arr.forEach((elem) => {
+//     if (Array.isArray(elem)) {
+//       flatArray = flatArray.concat(flatArr(elem));
+//     } else {
+//       flatArray.push(elem);
+//     }
+//   });
+//   return flatArray;
+// };
+// console.log(flatArr(nestedArray));
+// 	28.	Write a program that counts how many times each element appears in an array.
+
+// 	29.	Use .some() and .every() to check conditions on an array.
+// 	30.	Sort an array of objects by a specific property.
+
+// const memoize = (addTwoNum) => {
+//   const cache = {};
+//   return (...args) => {
+//     console.log("feching exiting Data");
+//     const key = JSON.stringify(args);
+//     if (cache[key]) {
+//       return cache[key];
+//     } else {
+//       console.log("calculating new Data");
+//       const result = addTwoNum(...args);
+//       cache[key] = result;
+//       return result;
+//     }
+//   };
+// };
+
+// const addTwoNum = (a, b) => {
+//   return a + b;
+// };
+
+// const memoizable = memoize(addTwoNum);
+// console.log(memoizable(2, 2));
+// console.log(memoizable(2, 2));
+// console.log(memoizable(2, 2));
+// console.log(memoizable(2, 2));
+
+// 55.	Create a function to toggle the visibility of an element.
+
+// const container = document.querySelector(".container")
+// const btn = document.querySelector(".btn")
+// btn.addEventListener("click",()=>{
+
+//   container.classList.toggle("hidden")
+// })
+
+// const debounce = (func, delay) => {
+//   let timer;
+//   return () => {
+//     clearTimeout(timer);
+//     timer = setTimeout(() => {
+//       func();
+//     }, delay);
+//   };
+// };
+
+// const handleCLick = () => {
+//   console.log("Click");
+// };
+
+// const debouncing = debounce(handleCLick, 3000);
+// debouncing();
+
+// const btn = document.querySelector(".btn");
+// btn.addEventListener("click", () => {
+//   document.querySelector(".container").classList.toggle("container");
+// });
+
+// const allPtag = document.querySelectorAll(".para");
+// console.log(allPtag.length);
+
+// 35.	Write a function to debounce a button click event.
+// answer=>
+// const debounce = (func, delay) => {
+//   let timer;
+//   return () => {
+//     clearTimeout(timer);
+//     timer = setTimeout(() => {
+//       func();
+//     }, delay);
+//   };
+// };
+// const handleClick = () => {
+//   console.log("Btn is clicked");
+// };
+
+// const debouncedHandleClick = debounce(handleClick, 1000);
+
+// const button = document.getElementById("myButton");
+// button.addEventListener("click", debouncedHandleClick);
+
+// let arr = [1, 1, 2, 2, 3, 4, 56, 7, 8, 9, 55, 55];
+// const checkOccurence = (arr) => {
+//   let count = {};
+//   arr.forEach((elem) => {
+//     elem in count ? count[elem]++ : (count[elem] = 1);
+//   });
+//   return count;
+// };
+// console.log(checkOccurence(arr));
