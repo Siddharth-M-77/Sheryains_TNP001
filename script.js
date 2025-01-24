@@ -932,3 +932,6 @@ let nestedArr = [1, [2, [3, [5, [7, [9]]]]]];
 //   return count;
 // };
 // console.log(checkOccurence(arr));
+
+
+
